@@ -109,7 +109,7 @@ public class PeopleFragment extends Fragment {
                     break;
             }
             holder.mGenderText.setText(gender);
-            holder.mBirth.setText(people.mBirth);
+            holder.mBirth.setText("Birth: " + people.mBirth);
         }
 
         @Override
