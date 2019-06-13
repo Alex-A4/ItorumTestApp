@@ -94,11 +94,21 @@ public class PlanetsFragment extends Fragment {
         public void onBindViewHolder(@NonNull PlanetsViewHolder holder, int position) {
             Planet planet = mPlanets.get(position);
             String additive = "";
+
             if (planet.mPopulation.compareTo("unknown") != 0)
                 additive = "  people";
             holder.mPopulation.setText(planet.mPopulation + additive);
-            holder.mName.setText((position+1) + ".  " + planet.mName);
-            holder.mDiameter.setText(planet.mDiameter + "  km");
+
+            holder.mName.setText((position + 1) + ".  " + planet.mName);
+
+            additive = "";
+            if (planet.mDiameter.compareTo("unknown") != 0)
+                additive = "  km";
+            holder.mDiameter.setText(planet.mDiameter + additive);
+
+            holder.mPopulation.getRootView().setOnClickListener(v -> {
+                startActivity(PlanetDescriptionActivity.getInstance(getContext(), position));
+            });
         }
 
         @Override
