@@ -78,8 +78,9 @@ public class PeopleFragment extends Fragment {
         }
 
         public void addData(ArrayList<People> data) {
-            mPeople.addAll(data);
-            notifyDataSetChanged();
+            mPeople = data;
+            if (PeopleFragment.this.isVisible())
+                notifyDataSetChanged();
         }
 
         @NonNull
@@ -94,7 +95,7 @@ public class PeopleFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull PeopleViewHolder holder, int position) {
             People people = mPeople.get(position);
-            holder.mName.setText((position+1) + ".  " + people.mName);
+            holder.mName.setText((position + 1) + ".  " + people.mName);
             String gender = people.mGender;
             switch (gender) {
                 case "male":
