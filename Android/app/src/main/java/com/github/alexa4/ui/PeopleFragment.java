@@ -110,6 +110,10 @@ public class PeopleFragment extends Fragment {
             }
             holder.mGenderText.setText(gender);
             holder.mBirth.setText("Birth: " + people.mBirth);
+
+            holder.mBirth.getRootView().setOnClickListener(v -> {
+                startActivity(PeopleDescriptionActivity.getInstance(getContext(), position));
+            });
         }
 
         @Override
