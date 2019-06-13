@@ -19,8 +19,20 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+
+/**
+ * Controller that provide access to data
+ */
 public class DataController {
     private static final String TAG = "DataController";
+
+    // Singleton instance of class
+    private static DataController instance = new DataController();
+
+    // Get instance of class
+    public static DataController getInstance() {
+        return instance;
+    }
 
     // Network client
     private final OkHttpClient client = new OkHttpClient();
@@ -65,11 +77,16 @@ public class DataController {
                         break;
                     }
 
+                    // Send part of data to UI
+                    emitter.onNext(mPeople.mPeople);
+
                     page++;
                 } while (isNewData);
 
+            } else {
+                emitter.onNext(mPeople.mPeople);
             }
-            emitter.onNext(mPeople.mPeople);
+
             emitter.onComplete();
         })
                 .subscribeOn(Schedulers.io())
