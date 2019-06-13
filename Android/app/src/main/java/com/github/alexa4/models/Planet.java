@@ -7,15 +7,15 @@ import org.json.JSONObject;
  *  The POJO class that describes instance of planet
  */
 public class Planet {
-    final String mName;
-    final String mRotation;
-    final String mOrbital;
-    final String mDiameter;
-    final String mClimate;
-    final String mGravity;
-    final String mTerrain;
-    final String mWater;
-    final String mPopulation;
+    public final String mName;
+    public final String mRotation;
+    public final String mOrbital;
+    public final String mDiameter;
+    public final String mClimate;
+    public final String mGravity;
+    public final String mTerrain;
+    public final String mWater;
+    public final String mPopulation;
 
     // ??
     final String mUrl;

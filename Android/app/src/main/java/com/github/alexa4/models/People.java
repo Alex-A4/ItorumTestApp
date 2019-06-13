@@ -8,15 +8,15 @@ import org.json.JSONObject;
  * The POJO class that describes instance of people
  */
 public class People {
-    final String mName;
-    final String mHeight;
-    final String mMass;
-    final String mHairColor;
-    final String mSkinColor;
-    final String mEyeColor;
-    final String mBirth;
-    final String mGender;
-    final String mUrl;
+    public final String mName;
+    public final String mHeight;
+    public final String mMass;
+    public final String mHairColor;
+    public final String mSkinColor;
+    public final String mEyeColor;
+    public final String mBirth;
+    public final String mGender;
+    public final String mUrl;
 
     // ??
     final String mHome;
