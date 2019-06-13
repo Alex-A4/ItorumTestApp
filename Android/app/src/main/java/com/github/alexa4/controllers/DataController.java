@@ -149,6 +149,21 @@ public class DataController {
     }
 
     /**
+     * Get the planet by input index
+     */
+    public Planet getPlanetByIndex(int index) {
+       return mPlanets.mPlanets.get(index);
+    }
+
+    /**
+     * Get people by input index
+     */
+    public People getPeopleByIndex(int index) {
+        return mPeople.mPeople.get(index);
+    }
+
+
+    /**
      * Dispose controller to free memory
      */
     public void dispose() {
