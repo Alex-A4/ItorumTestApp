@@ -131,11 +131,16 @@ public class DataController {
                         break;
                     }
 
+                    // Send data to UI
+                    emitter.onNext(mPlanets.mPlanets);
+
                     page++;
                 } while (isNewData);
 
+            } else {
+                emitter.onNext(mPlanets.mPlanets);
             }
-            emitter.onNext(mPlanets.mPlanets);
+
             emitter.onComplete();
         })
                 .subscribeOn(Schedulers.io())
