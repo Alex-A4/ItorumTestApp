@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/planet_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/planet_diameter_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_diameter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/planet_name" />
+
+    <TextView
+        android:id="@+id/planet_diameter"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/planet_diameter_icon"
+        app:layout_constraintTop_toTopOf="@id/planet_diameter_icon" />
+
+    <ImageView
+        android:id="@+id/planet_population_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_population"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/planet_diameter_icon" />
+
+    <TextView
+        android:id="@+id/planet_population"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/planet_population_icon"
+        app:layout_constraintTop_toTopOf="@id/planet_population_icon" />
+
+    <ImageView
+        android:id="@+id/planet_gravity_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_gravity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/planet_population_icon" />
+
+    <TextView
+        android:id="@+id/planet_gravity"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/planet_gravity_icon"
+        app:layout_constraintTop_toTopOf="@id/planet_gravity_icon" />
+
+
+    <ImageView
+        android:id="@+id/planet_climate_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_climate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/planet_gravity_icon" />
+
+    <TextView
+        android:id="@+id/planet_climate"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/planet_climate_icon"
+        app:layout_constraintTop_toTopOf="@id/planet_climate_icon" />
+
+    <ImageView
+        android:id="@+id/planet_terrain_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_terrain"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/planet_climate_icon" />
+
+    <TextView
+        android:id="@+id/planet_terrain"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/planet_terrain_icon"
+        app:layout_constraintTop_toTopOf="@id/planet_terrain_icon" />
+
+    <ImageView
+        android:id="@+id/planet_water_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_water_surface"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/planet_terrain_icon" />
+
+    <TextView
+        android:id="@+id/planet_water"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/planet_water_icon"
+        app:layout_constraintTop_toTopOf="@id/planet_water_icon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
