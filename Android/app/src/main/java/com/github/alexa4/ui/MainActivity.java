@@ -10,12 +10,13 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
 import com.github.alexa4.R;
-import com.github.alexa4.controllers.DataController;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager mPager;
     private PagerAdapter mAdapter;
-    private DataController mController = new DataController();
+
+    private PlanetsFragment mPlanets = new PlanetsFragment();
+    private PeopleFragment mPeople = new PeopleFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +29,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onDestroy() {
-        mController.dispose();
-        super.onDestroy();
-    }
-
     /**
      * Custom implementation of adapter for ViewPager
      * This adapter contains 2 fragments
-     * 1-st for people people
+     * 1-st for people page
      * 2-nd for planets page
      */
     private class CustomFragmentAdapter extends FragmentPagerAdapter {
@@ -48,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if (position == 1) {
-                return new PeopleFragment();
+            if (position == 0) {
+                return mPeople;
             }
 
-            return new PlanetsFragment();
+            return mPlanets;
         }
 
         @Override
@@ -62,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            if (position == 1)
+            if (position == 0)
                 return "People";
 
             return "Planets";
