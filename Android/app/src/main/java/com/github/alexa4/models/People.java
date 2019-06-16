@@ -7,35 +7,68 @@ import org.json.JSONObject;
 /**
  * The POJO class that describes instance of people
  */
-public class People {
-    public final String mName;
-    public final String mHeight;
-    public final String mMass;
-    public final String mHairColor;
-    public final String mSkinColor;
-    public final String mEyeColor;
-    public final String mBirth;
-    public final String mGender;
-    public final String mUrl;
-
-    // ??
-    final String mHome;
+public class People extends Model {
+    private String mName;
+    private String mHeight;
+    private String mMass;
+    private String mHairColor;
+    private String mSkinColor;
+    private String mEyeColor;
+    private String mBirth;
+    private String mGender;
 
     /**
-     * Default constructor that create people from incoming json object
-     *
-     * @param json object with people
+     * Default empty constructor
      */
-    public People(JSONObject json) throws JSONException {
+    public People() {
+    }
+
+    /**
+     * Implementation on method that creates people from input json object
+     *
+     * @param json object with information about people
+     */
+    @Override
+    public void extractData(JSONObject json) throws JSONException {
         mName = json.getString("name");
-        mHeight = json.getString("height");
-        mMass = json.getString("mass");
+        mHeight = addAdditive(json.getString("height"), "cm");
+        mMass = addAdditive(json.getString("mass"), "kg");
         mHairColor = json.getString("hair_color");
         mSkinColor = json.getString("skin_color");
         mEyeColor = json.getString("eye_color");
         mBirth = json.getString("birth_year");
         mGender = json.getString("gender");
-        mUrl = json.getString("url");
-        mHome = json.getString("homeworld");
+    }
+
+    public String name() {
+        return mName;
+    }
+
+    public String height() {
+        return mHeight;
+    }
+
+    public String mass() {
+        return mMass;
+    }
+
+    public String hairColor() {
+        return mHairColor;
+    }
+
+    public String skinColor() {
+        return mSkinColor;
+    }
+
+    public String eyeColor() {
+        return mEyeColor;
+    }
+
+    public String birth() {
+        return mBirth;
+    }
+
+    public String gender() {
+        return mGender;
     }
 }
