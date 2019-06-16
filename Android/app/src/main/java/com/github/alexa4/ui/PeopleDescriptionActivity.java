@@ -40,13 +40,13 @@ public class PeopleDescriptionActivity extends AppCompatActivity {
                 getIntent().getIntExtra(INDEX_TAG, 0));
 
         TextView mName = findViewById(R.id.people_name);
-        mName.setText(mPeople.mName);
+        mName.setText(mPeople.name());
 
         TextView mGender = findViewById(R.id.people_gender);
-        mGender.setText(mPeople.mGender);
+        mGender.setText(mPeople.gender());
 
         ImageView mGenderIcon = findViewById(R.id.people_gender_icon);
-        switch (mPeople.mGender) {
+        switch (mPeople.gender()) {
             case "male":
                 mGenderIcon.setImageResource(R.drawable.ic_men);
                 break;
@@ -59,22 +59,22 @@ public class PeopleDescriptionActivity extends AppCompatActivity {
         }
 
         TextView mBirth = findViewById(R.id.people_birth);
-        mBirth.setText("Birth: " + mPeople.mBirth);
+        mBirth.setText("Birth: " + mPeople.birth());
 
         TextView mEye = findViewById(R.id.people_eye);
-        mEye.setText(mPeople.mEyeColor);
+        mEye.setText(mPeople.eyeColor());
 
         TextView mWeight = findViewById(R.id.people_weight);
-        mWeight.setText(mPeople.mMass + "  kg");
+        mWeight.setText(mPeople.mass());
 
         TextView mHeight = findViewById(R.id.people_height);
-        mHeight.setText(mPeople.mHeight + "  cm");
+        mHeight.setText(mPeople.height());
 
         TextView mHair = findViewById(R.id.people_hair);
-        mHair.setText(mPeople.mHairColor);
+        mHair.setText(mPeople.hairColor());
 
         TextView mSkin = findViewById(R.id.people_skin);
-        mSkin.setText(mPeople.mSkinColor);
+        mSkin.setText(mPeople.skinColor());
 
         // Set up back button in action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

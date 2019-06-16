@@ -39,30 +39,25 @@ public class PlanetDescriptionActivity extends AppCompatActivity {
 
 
         TextView mName = findViewById(R.id.planet_name);
-        mName.setText(mPlanet.mName);
+        mName.setText(mPlanet.name());
 
-        String additive = "";
-        if (mPlanet.mDiameter.compareTo("unknown") == 0)
-            additive = "  km";
         TextView mDiameter = findViewById(R.id.planet_diameter);
-        mDiameter.setText(mPlanet.mDiameter + additive);
+        mDiameter.setText(mPlanet.diameter());
 
-        if (mPlanet.mPopulation.compareTo("unknown") != 0)
-            additive = "  people";
         TextView mPopulation = findViewById(R.id.planet_population);
-        mPopulation.setText(mPlanet.mPopulation + additive);
+        mPopulation.setText(mPlanet.population());
 
         TextView mGravity = findViewById(R.id.planet_gravity);
-        mGravity.setText(mPlanet.mGravity);
+        mGravity.setText(mPlanet.gravity());
 
         TextView mClimate = findViewById(R.id.planet_climate);
-        mClimate.setText(mPlanet.mClimate);
+        mClimate.setText(mPlanet.climate());
 
         TextView mTerrain = findViewById(R.id.planet_terrain);
-        mTerrain.setText(mPlanet.mTerrain);
+        mTerrain.setText(mPlanet.terrain());
 
         TextView mWater = findViewById(R.id.planet_water);
-        mWater.setText(mPlanet.mWater + "%");
+        mWater.setText(mPlanet.water());
 
         // Set up back button in action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

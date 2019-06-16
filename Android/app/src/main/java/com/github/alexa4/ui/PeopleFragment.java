@@ -95,8 +95,8 @@ public class PeopleFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull PeopleViewHolder holder, int position) {
             People people = mPeople.get(position);
-            holder.mName.setText((position + 1) + ".  " + people.mName);
-            String gender = people.mGender;
+            holder.mName.setText((position + 1) + ".  " + people.name());
+            String gender = people.gender();
             switch (gender) {
                 case "male":
                     holder.mGenderIcon.setImageResource(R.drawable.ic_men);
@@ -109,7 +109,7 @@ public class PeopleFragment extends Fragment {
                     break;
             }
             holder.mGenderText.setText(gender);
-            holder.mBirth.setText("Birth: " + people.mBirth);
+            holder.mBirth.setText("Birth: " + people.birth());
 
             holder.mBirth.getRootView().setOnClickListener(v -> {
                 startActivity(PeopleDescriptionActivity.getInstance(getContext(), position));

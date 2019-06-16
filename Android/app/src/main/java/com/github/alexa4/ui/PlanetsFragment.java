@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -93,18 +92,10 @@ public class PlanetsFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull PlanetsViewHolder holder, int position) {
             Planet planet = mPlanets.get(position);
-            String additive = "";
 
-            if (planet.mPopulation.compareTo("unknown") != 0)
-                additive = "  people";
-            holder.mPopulation.setText(planet.mPopulation + additive);
-
-            holder.mName.setText((position + 1) + ".  " + planet.mName);
-
-            additive = "";
-            if (planet.mDiameter.compareTo("unknown") != 0)
-                additive = "  km";
-            holder.mDiameter.setText(planet.mDiameter + additive);
+            holder.mPopulation.setText(planet.population());
+            holder.mName.setText((position + 1) + ".  " + planet.name());
+            holder.mDiameter.setText(planet.diameter());
 
             holder.mPopulation.getRootView().setOnClickListener(v -> {
                 startActivity(PlanetDescriptionActivity.getInstance(getContext(), position));
