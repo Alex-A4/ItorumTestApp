@@ -104,8 +104,7 @@ public class Downloader<T extends Model> {
 
             JSONObject json = new JSONObject(body);
             provider.parseData(json);
-
-            return json.getString("next").compareTo("null") != 0 ? 1 : 2;
+            return !json.get("next").equals(JSONObject.NULL) ? 1 : 2;
         } catch (JSONException e) {
             e.printStackTrace();
             return 3;
