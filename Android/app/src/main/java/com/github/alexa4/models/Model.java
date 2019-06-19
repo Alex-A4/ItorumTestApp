@@ -13,6 +13,9 @@ public abstract class Model {
 
     /**
      * Abstract method to extract data from input JSON object
+     * <p>
+     * If data is incorrect, then exception would be thrown and set of data
+     * would be skipped
      */
     public abstract void extractData(JSONObject json) throws JSONException;
 

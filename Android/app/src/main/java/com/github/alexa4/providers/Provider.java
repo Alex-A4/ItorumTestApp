@@ -63,6 +63,9 @@ public class Provider<T extends Model> {
     /**
      * Parse data from input JSON object and add new instance
      * of class T to list
+     * <p>
+     * If data incorrect, then parsing will be skipped for that
+     * set
      *
      * @param json object should contains data that needs to
      *             create instance of class T
