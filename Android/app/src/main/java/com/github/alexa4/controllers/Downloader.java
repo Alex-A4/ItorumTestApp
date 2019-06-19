@@ -35,18 +35,7 @@ public class Downloader<T extends Model> {
     /**
      * Get Observable that is trying to download data with specified urlPart
      * and put it to provider. All updates sends to UI with emitter
-     *
-     * @param urlPart  the part of url to refer to API. It could be "people" or "planets"
-     * @param provider the provider that contains list of data of specified type T
-     */
-    public Observable<ArrayList<T>> getDownloader(String urlPart, Provider<T> provider) {
-        return Observable.<ArrayList<T>>create(emitter -> downloadData(urlPart, emitter, provider))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-    }
-
-
-    /**
+     * <p>
      * Download data page by page until all data would be downloaded.
      * Each separate network call downloads some data and bring information about
      * is there more data or not.
@@ -55,36 +44,39 @@ public class Downloader<T extends Model> {
      * <p>
      * If exception appeared in time of downloading then it sends to UI
      *
-     * @param urlPart  the part of url that is equals to "planets" or "people"
-     * @param emitter  the emitter of observable which needs to send data to UI
-     * @param provider the provider that stores data
+     * @param urlPart  the part of url to refer to API. It could be "people" or "planets"
+     * @param provider the provider that contains list of data of specified type T
      */
-    private void downloadData(String urlPart, ObservableEmitter<ArrayList<T>> emitter,
-                              Provider<T> provider) {
-        if (!provider.isLoaded()) {
-            int page = 1;
+    public Observable<ArrayList<T>> getDownloader(String urlPart, Provider<T> provider) {
+        return Observable.<ArrayList<T>>create(emitter -> {
+                    if (!provider.isLoaded()) {
+                        int page = 1;
 
-            while (true) {
-                int result = downloadPage("https://swapi.co/api/"
-                        + urlPart + "/?page=" + page, provider);
+                        while (true) {
+                            int result = downloadPage("https://swapi.co/api/"
+                                    + urlPart + "/?page=" + page, provider);
 
-                if (result == 1) {
+                            if (result == 1) {
+                                emitter.onNext(provider.list());
+                                page++;
+                            } else if (result == 2)
+                                break;
+                            else if (result == 3) page++;
+                            else {
+                                emitter.onError(new Throwable("Unable to download data"));
+                                return;
+                            }
+                        }
+                    }
+
+                    // if loaded or last update
                     emitter.onNext(provider.list());
-                    page++;
-                } else if (result == 2)
-                    break;
-                else if (result == 3) page++;
-                else {
-                    emitter.onError(new Throwable("Unable to download data"));
-                    return;
+                    emitter.onComplete();
                 }
-            }
-        }
-
-        // if loaded or last update
-        emitter.onNext(provider.list());
-        emitter.onComplete();
+        ).subscribeOn(Schedulers.io())
+         .observeOn(AndroidSchedulers.mainThread());
     }
+
 
     /**
      * Download unique page with data and put it to provider.
