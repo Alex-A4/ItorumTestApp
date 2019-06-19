@@ -22,8 +22,9 @@ public class DataController {
     }
 
     // Providers of data
-    private final Provider<People> mPeople = new Provider<>();
-    private final Provider<Planet> mPlanets = new Provider<>();
+    // Put Class variable to constructor to create instances of that class in work time
+    private final Provider<People> mPeople = new Provider<>(People.class);
+    private final Provider<Planet> mPlanets = new Provider<>(Planet.class);
 
 
     /**

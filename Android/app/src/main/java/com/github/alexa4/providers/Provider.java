@@ -24,6 +24,19 @@ public class Provider<T extends Model> {
     private static final String TAG = "Provider";
 
     /**
+     * Class that needs to create instances of class T
+     * This needs because of generic type
+     */
+    private Class<T> maker;
+
+    /**
+     * Default constructor with initialize of maker
+     */
+    public Provider(Class<T> maker) {
+        this.maker = maker;
+    }
+
+    /**
      * List of data of type T
      * The list fills when method parseData completes
      */
@@ -58,8 +71,6 @@ public class Provider<T extends Model> {
 
         try {
             JSONArray array = json.getJSONArray("results");
-
-            Class<T> maker = new Class<>();
 
             for (int i = 0; i < array.length(); i++) {
                 // Create instance of class T
