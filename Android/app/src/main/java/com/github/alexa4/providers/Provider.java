@@ -1,7 +1,5 @@
 package com.github.alexa4.providers;
 
-import android.util.Log;
-
 import com.github.alexa4.models.Model;
 
 import org.json.JSONArray;
@@ -70,25 +68,22 @@ public class Provider<T extends Model> {
      * @param json object should contains data that needs to
      *             create instance of class T
      */
-    public void parseData(JSONObject json) throws JSONException {
-        Log.d(TAG, "Start parsing");
-
+    public void parseData(JSONObject json) {
         try {
             JSONArray array = json.getJSONArray("results");
 
-            for (int i = 0; i < array.length(); i++) {
-                // Create instance of class T
-                T model = maker.newInstance();
+            if (array != null)
+                for (int i = 0; i < array.length(); i++) {
+                    // Create instance of class T
+                    T model = maker.newInstance();
 
-                model.extractData(array.getJSONObject(i));
-                mList.add(model);
+                    model.extractData(array.getJSONObject(i));
+                    mList.add(model);
 
-            }
+                }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        Log.d(TAG, "End parsing");
     }
 
     /**
