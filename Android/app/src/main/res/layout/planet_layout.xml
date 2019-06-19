@@ -46,7 +46,6 @@
     <TextView
         android:id="@+id/planet_population"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:textSize="20sp"
@@ -65,9 +64,9 @@
     <TextView
         android:id="@+id/planet_gravity"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
+        android:layout_marginBottom="4dp"
         android:textSize="20sp"
         app:layout_constraintLeft_toRightOf="@id/planet_gravity_icon"
         app:layout_constraintTop_toTopOf="@id/planet_gravity_icon" />
@@ -80,12 +79,11 @@
         android:layout_marginTop="14dp"
         android:src="@drawable/ic_climate"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/planet_gravity_icon" />
+        app:layout_constraintTop_toBottomOf="@id/planet_gravity" />
 
     <TextView
         android:id="@+id/planet_climate"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:textSize="20sp"
@@ -99,14 +97,14 @@
         android:layout_marginTop="14dp"
         android:src="@drawable/ic_terrain"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/planet_climate_icon" />
+        app:layout_constraintTop_toBottomOf="@id/planet_climate" />
 
     <TextView
         android:id="@+id/planet_terrain"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
+        android:layout_marginBottom="4dp"
         android:textSize="20sp"
         app:layout_constraintLeft_toRightOf="@id/planet_terrain_icon"
         app:layout_constraintTop_toTopOf="@id/planet_terrain_icon" />
@@ -118,12 +116,11 @@
         android:layout_marginTop="14dp"
         android:src="@drawable/ic_water_surface"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/planet_terrain_icon" />
+        app:layout_constraintTop_toBottomOf="@id/planet_terrain" />
 
     <TextView
         android:id="@+id/planet_water"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:textSize="20sp"
