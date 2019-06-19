@@ -43,6 +43,12 @@ public class Downloader<T extends Model> {
      * number of page
      * <p>
      * If exception appeared in time of downloading then it sends to UI
+     * <p>
+     * Code handle:
+     * 1 - continue work
+     * 2 - finish work
+     * 3 - skip iteration
+     * 4 - send error to UI and stop working
      *
      * @param urlPart  the part of url to refer to API. It could be "people" or "planets"
      * @param provider the provider that contains list of data of specified type T
@@ -84,13 +90,13 @@ public class Downloader<T extends Model> {
      * 1 - got new data
      * 2 - data ended
      * 3 - json parse exception (incorrect data)
-     * 4 - downloading error (appears when user have no internet or data incorrect)
+     * 4 - downloading error (appears when user have no internet or page incorrect)
      *
      * @param url      the url from which need download data
      * @param provider the provider where need to put data
      * @return result code in range [1..4]
      */
-    private int downloadPage(String url, Provider<T> provider) {
+    public int downloadPage(String url, Provider<T> provider) {
         try {
             String body = makeCall(url);
             if (body == null)
@@ -117,7 +123,7 @@ public class Downloader<T extends Model> {
      * @param url the url for which need to make network call
      * @return string result or null
      */
-    private String makeCall(String url) throws IOException {
+    public String makeCall(String url) throws IOException {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
