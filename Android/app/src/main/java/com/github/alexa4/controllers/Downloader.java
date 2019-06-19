@@ -1,6 +1,5 @@
 package com.github.alexa4.controllers;
 
-import android.util.Log;
 
 import com.github.alexa4.models.Model;
 import com.github.alexa4.providers.Provider;
@@ -12,7 +11,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
