@@ -25,7 +25,8 @@ public class Provider<T extends Model> {
 
     /**
      * Class that needs to create instances of class T
-     * This needs because of generic type
+     * This needs because of impossibilities to create instance
+     * of generic class like new T();
      */
     private Class<T> maker;
 
