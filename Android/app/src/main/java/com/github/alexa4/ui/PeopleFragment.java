@@ -107,6 +107,9 @@ public class PeopleFragment extends Fragment {
                 case "female":
                     holder.mGenderIcon.setImageResource(R.drawable.ic_girl);
                     break;
+                default:
+                    holder.mGenderIcon.setImageResource(R.drawable.ic_gender_default);
+                    break;
             }
             holder.mGenderText.setText(gender);
             holder.mBirth.setText("Birth: " + people.birth());

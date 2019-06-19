@@ -56,6 +56,9 @@ public class PeopleDescriptionActivity extends AppCompatActivity {
             case "female":
                 mGenderIcon.setImageResource(R.drawable.ic_girl);
                 break;
+            default:
+                mGenderIcon.setImageResource(R.drawable.ic_gender_default);
+                break;
         }
 
         TextView mBirth = findViewById(R.id.people_birth);
