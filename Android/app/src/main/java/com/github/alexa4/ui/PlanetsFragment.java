@@ -22,8 +22,14 @@ import java.util.ArrayList;
 
 import io.reactivex.disposables.Disposable;
 
+/**
+ * Page with short information about each planets.
+ * Planets displays in list where each element contains name, diameter and population
+ */
 public class PlanetsFragment extends Fragment {
+    // Rx instance to dispose downloading if user close the app
     private Disposable mDisposable;
+
     private RecyclerView mList;
     private ProgressBar mIndicator;
 
@@ -67,6 +73,10 @@ public class PlanetsFragment extends Fragment {
                 "Unable to load planets, check internet", Toast.LENGTH_SHORT).show();
     }
 
+
+    /**
+     * Adapter of list that manipulate with items
+     */
     private class PlanetsAdapter extends RecyclerView.Adapter<PlanetsAdapter.PlanetsViewHolder> {
         private ArrayList<Planet> mPlanets;
 

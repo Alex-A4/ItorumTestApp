@@ -11,6 +11,11 @@ import android.os.Bundle;
 
 import com.github.alexa4.R;
 
+/**
+ * The main page of app.
+ * There are fragment container with tab pager, which contains
+ * People and Planets fragments
+ */
 public class MainActivity extends AppCompatActivity {
     private ViewPager mPager;
     private PagerAdapter mAdapter;

@@ -23,8 +23,14 @@ import java.util.ArrayList;
 
 import io.reactivex.disposables.Disposable;
 
+/**
+ * Page with short information about each person.
+ * People displays in list where each element contains name, gender and birth date
+ */
 public class PeopleFragment extends Fragment {
+    // Rx instance to dispose downloading if user close the app
     private Disposable mDisposable;
+
     private RecyclerView mList;
     private ProgressBar mIndicator;
 
@@ -70,6 +76,10 @@ public class PeopleFragment extends Fragment {
                 "Unable to load people, check internet", Toast.LENGTH_SHORT).show();
     }
 
+
+    /**
+     * Adapter of list that manipulate with items
+     */
     private class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleViewHolder> {
         private ArrayList<People> mPeople;
 

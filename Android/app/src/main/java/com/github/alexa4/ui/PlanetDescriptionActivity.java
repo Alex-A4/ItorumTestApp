@@ -12,6 +12,9 @@ import com.github.alexa4.R;
 import com.github.alexa4.controllers.DataController;
 import com.github.alexa4.models.Planet;
 
+/**
+ * Activity with full information about one planet
+ */
 public class PlanetDescriptionActivity extends AppCompatActivity {
     private static String INDEX_TAG = "INDEX_TAG";
 
@@ -19,6 +22,7 @@ public class PlanetDescriptionActivity extends AppCompatActivity {
 
     /**
      * Get intent instance of that activity
+     * and put index of planet in list to that intent
      *
      * @param context of app
      * @param index   of planet in list

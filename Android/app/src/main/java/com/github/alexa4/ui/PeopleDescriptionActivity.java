@@ -13,6 +13,9 @@ import com.github.alexa4.R;
 import com.github.alexa4.controllers.DataController;
 import com.github.alexa4.models.People;
 
+/**
+ * Activity with full information about one person
+ */
 public class PeopleDescriptionActivity extends AppCompatActivity {
     private static String INDEX_TAG = "INDEX_TAG";
 
@@ -20,6 +23,7 @@ public class PeopleDescriptionActivity extends AppCompatActivity {
 
     /**
      * Get intent instance of that activity
+     * and put index of person in list to that intent
      *
      * @param context of app
      * @param index   of people in list
